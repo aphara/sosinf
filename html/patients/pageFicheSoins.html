@@ -1,0 +1,70 @@
+<div class="panel panel-default">
+  <div class="panel-heading">Mission proposée</div>
+  <div class="panel-body">
+    <div class="form-group col-sm-3">
+      <label class="col-form-label">Début soins : </label>
+      <div class='input-group date' id='pat_date' >
+        <input type='text' class="form-control" value="<?php echo date('d/m/Y'); ?>"/>
+        <span class="input-group-addon"><span class="fas fa-calendar-alt"></span></span>
+      </div>
+    </div>
+    <div class="form-group col-sm-3">
+      <div class="form-check form-check-inline">
+        <input type="radio" class="form-check-input" id="chkHeure1" name="chkHeure" value="M" checked>
+        <label class="form-check-label" for="chkHeure1">Matin</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input type="radio" class="form-check-input" id="chkHeure2" name="chkHeure" value="S">
+        <label class="form-check-label" for="chkHeure2">Soir</label>
+      </div>
+      <div class="input-group bootstrap-timepicker timepicker">
+        <input id="pat_heure" type="text" class="form-control input-small">
+      </div>
+    </div>
+    <div class="form-group col-sm-2">
+      <label class="col-form-label">B/E/F/H : </label>
+      <select class="form-control" id="pat_sexe">
+        <option value='H'>H</option>  
+        <option value='F'>F</option>  
+        <option value='E'>E</option>  
+        <option value='B'>B</option>  
+      </select>
+    </div>
+
+    <div class="form-group col-sm-5">
+      <label for="infdispo">Infirmier:</label>
+      <select class="form-control" id="infdispo">
+      </select>
+    </div>
+  </div>
+
+    <div class="panel-footer">
+      <div class="btn-group">
+<!--         <button type="button" class="btn btn-primary" id="btnErase">Vider les champs</button>
+        <button type="button" class="btn btn-primary">Ajouter</button>
+        <button type="button" class="btn btn-primary">Sauvegarder</button>
+ -->        <button type="button" class="btn btn-primary" id="btnTest">Envoi du SMS</button>
+      </div>        
+    </div>
+</div>
+</form>
+
+
+
+
+<script>
+$('.form-check-input').click(function() {
+  if ($(this).is(':checked')) {
+    if($(this).val()==="M") $("#pat_heure").val("10:00");
+    if($(this).val()==="S") $("#pat_heure").val("15:00");
+
+    var fDate = new Date($('#pat_date').datepicker('getDate'));
+    var day = fDate.getDate()<10?'0'+fDate.getDate():fDate.getDate();
+    var month = fDate.getMonth()+1;
+    month = month<10?'0'+month:month;
+    var pat_date = day + '/' + month + '/' + fDate.getFullYear();
+    getInfirmier($('#pat_cp').val(),$("#pat_heure").val(),pat_date);
+  }
+}); 
+
+</script>

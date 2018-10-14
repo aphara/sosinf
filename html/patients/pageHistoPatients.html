@@ -1,0 +1,100 @@
+<div class="panel panel-default">
+    <div class="panel-heading">Historique</div>
+    <div class="panel-body">
+        <table id="tableH"
+            data-toggle="table"
+            data-toolbar="#toolbar"
+            data-height="160"
+            data-sort-name="hist_deb_soins"
+            data-sort-order="desc"
+            >
+            <thead>
+            <tr>
+                <!-- <th class="col-xs-5" data-field="pat_nom" data-halign="center" data-align="left" data-sortable="true" data-events="operateEvents" data-formatter="operateFormatter">Nom</th> -->
+
+                <th class="col-xs-1" data-field="hist_deb_soins" data-halign="center" data-align="left" data-sortable="true">Début</th>
+                <th class="col-xs-0" data-field="hist_heure" data-halign="center" data-align="left" data-sortable="true">Heure</th>
+                <th class="col-xs-0" data-field="hist_efh" data-halign="center" data-align="left" data-sortable="true">E/F/H</th>
+                <th class="col-xs-6" data-field="hist_soin" data-halign="center" data-align="left" data-sortable="true">Soin</th>
+                <th class="col-xs-1" data-field="hist_tel" data-halign="center" data-align="left" data-sortable="true">Tél</th>
+                <th class="col-xs-1" data-field="hist_origine" data-halign="center" data-align="left" data-sortable="true">Origine</th>
+                <th class="col-xs-2" data-field="hist_inf" data-halign="center" data-align="left" data-sortable="true">Infirmier</th>
+                <th class="col-xs-0" data-field="hist_qual" data-halign="center" data-align="left" data-sortable="true"></th>
+                <th class="col-xs-0" data-field="hist_etat_sms" data-halign="center" data-align="left" data-sortable="true"></th>
+                       
+            </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+
+<!-- hist_deb_soins: "2018-09-13 00:00:00"
+hist_efh: "F"
+hist_etat_sms: "ok"
+hist_heure: "2008-09-01 08:00:00"
+hist_id: "139278"
+hist_inf: "CANTAGREL"
+hist_origine: "PAGE JAUNE"
+hist_pat_id: "BENINCASA"
+hist_qual: "ACCEPTE"
+hist_referant: ""
+hist_soin: "INJ LOVENOX 1F/JOURS PDT 10JOURS + PST ABDOMEN  1JOURS SUR 2 PDT 10 JOURS A COMMENCER 15/09"
+hist_tel: "0634296928"
+ -->
+
+<script>
+    function detailFormatter(index, row) {
+        var html = [];
+        $.each(row, function (key, value) {
+            html.push('<p><b>' + key + ':</b> ' + value + '</p>');
+        });
+        return html.join('');
+    }
+
+    window.operateEvents = {
+        'click .like': function (e, value, row) {
+            $('#inputid').val(row.pat_id);
+            $('#inputLastName').val(row.pat_nom);
+            $('#inputFirstName').val(row.pat_prenom);
+            $('#txtCreate').html(row.pat_creation);
+            $('#txtModif').html(row.pat_modification);
+            $('#inputRue').val(row.pat_rue1);
+            $('#inputTel').val(row.pat_tel1);
+            $('#inputRef').val(row.pat_idel);
+
+            $('#inputBat').val(row.pat_rue2);
+            $('#inputTel2').val(row.pat_tel2);
+            $('#inputMail').val(row.pat_email);
+
+            $('#pat_cp').val(row.pat_cp);
+            $('#inputVille').val(row.pat_ville);
+            $('#inputMail2').val(row.pat_societe);
+            
+            $('#inputObs').html(row.pat_observation);
+            remplirChampSMS();
+
+            var fDate = new Date($('#pat_date').datepicker('getDate'));
+            var day = fDate.getDate()<10?'0'+fDate.getDate():fDate.getDate();
+            var month = fDate.getMonth()+1;
+            month = month<10?'0'+month:month;
+            var pat_date = day + '/' + month + '/' + fDate.getFullYear();
+            getInfirmier($('#pat_cp').val(),$('#pat_heure').data("timepicker").getTime(),pat_date);
+            getHistorique($('#inputid').val());
+
+
+
+        },
+    };
+
+/*"pat_id":"24240","pat_creation":"2011-03-16 00:00:00","pat_modification":"2015-11-09 12:30:07","pat_nom":" DISIDORO","pat_prenom":"SOPHIE","pat_rue1":"42 RUE DES MESSIERS ","pat_tel1":"0630371991","pat_idel":"","pat_rue2":"PAV ","pat_tel2":"","pat_email":"","pat_cp":"93100","pat_ville":"MONTREUIL ","pat_societe":"","pat_sms":"0630371991  DISIDORO 42 RUE DES MESSIERS  PAV  93100 ABLAT AGRAFES A FAIRE LE 17.03 MERCI DALIA  09/11/2015 12:00 H","pat_observation":""}
+*/
+
+    function operateFormatter(value, row, index) {
+        return [
+            '<a class="like">' + value + '</a>'
+        ].join('');
+    }
+</script>
+
+</body>
+</html>

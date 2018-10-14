@@ -1,0 +1,73 @@
+<div class="panel panel-default">
+    <div class="panel-heading">Répertoire</div>
+    <div class="panel-body" style="padding: 0px;">
+        <table id="table"
+            data-classes="table table-no-bordered"
+            data-toggle="table"
+            data-height="460"
+            data-detail-view="true"
+            data-detail-formatter="detailFormatter"
+            data-sort-name="pat_modification"
+            data-sort-order="desc"
+            >
+            <thead>
+            <tr>
+                <th class="col-xs-2" data-field="pat_nom" data-halign="center" data-align="left" data-sortable="true" data-events="operateEvents" data-formatter="operateFormatter">Nom</th>
+                <th class="col-xs-2" data-field="pat_prenom" data-halign="center" data-align="left" data-sortable="true">Prénom</th>
+                <th class="col-xs-1" data-field="pat_tel1" data-halign="center" data-align="left" data-sortable="true">Tél</th>
+               <th class="col-xs-1" data-field="pat_modification" data-halign="center" data-align="left" data-sortable="true">Modifié le</th>
+                <th class="col-xs-6" data-field="pat_rue1" data-halign="center" data-align="left" data-sortable="true">Adresse</th>
+            </tr>
+            </thead>
+       </table>
+    </div>
+</div>
+<script>
+    function detailFormatter(index, row) {
+        var html = [];
+        $.each(row, function (key, value) {
+            html.push('<p><b>' + key + ':</b> ' + value + '</p>');
+        });
+        return html.join('');
+    }
+
+    window.operateEvents = {
+        'click .like': function (e, value, row) {
+            $('#inputid').val(row.pat_id);
+            $('#inputLastName').val(row.pat_nom);
+            $('#inputFirstName').val(row.pat_prenom);
+            $('#txtCreate').html(row.pat_creation);
+            $('#txtModif').html(row.pat_modification);
+            $('#inputRue').val(row.pat_rue1);
+            $('#inputTel').val(row.pat_tel1);
+            $('#inputRef').val(row.pat_idel);
+
+            $('#inputBat').val(row.pat_rue2);
+            $('#inputTel2').val(row.pat_tel2);
+            $('#inputMail').val(row.pat_email);
+
+            $('#pat_cp').val(row.pat_cp);
+            $('#inputVille').val(row.pat_ville);
+            $('#inputMail2').val(row.pat_societe);
+            alert(row.pat_observation);
+            $('#inputobs').html(row.pat_observation);
+            remplirChampSMS();
+
+            var fDate = new Date($('#pat_date').datepicker('getDate'));
+            var day = fDate.getDate()<10?'0'+fDate.getDate():fDate.getDate();
+            var month = fDate.getMonth()+1;
+            month = month<10?'0'+month:month;
+            var pat_date = day + '/' + month + '/' + fDate.getFullYear();
+            getInfirmier($('#pat_cp').val(),$('#pat_heure').data("timepicker").getTime(),pat_date);
+            getHistorique($('#inputid').val());
+
+
+
+        },
+    };
+    function operateFormatter(value, row, index) {
+        return [
+            '<a class="like">' + value + '</a>'
+        ].join('');
+    }
+</script>

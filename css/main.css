@@ -1,0 +1,369 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto:300,400,500,600,700);
+@import url(http://fonts.googleapis.com/css?family=Roboto%20Slab:300,400,500,600,700);
+
+/* Générique pour la page ----------------------------------------------------------------------------*/
+body {
+  background: #fff;
+  color: #666666;
+  font-family: "Roboto", sans-serif;
+  overflow: hidden;
+}
+
+section{
+  height: 100vh;
+  overflow-y: auto;
+}
+section .container{
+  margin-top: 15vh;
+  height: 70vh;
+}
+
+.input-group-addon:first-child {
+    border-right: 0;
+    width: 140px;
+    text-align: left;
+}
+/* En-tête--------------------------------------------------------------------------------------------*/
+ .box {
+  top: 5vh;
+  padding: 50px 20px;
+  /*margin-bottom: 50px;*/
+  text-align: center;
+  border: 1px solid #e6e6e6;
+  /*height: 430px;*/
+  position: relative;
+  background: #F0F0F0;
+}
+
+
+.topbox {
+  position: absolute;
+  display: inline-block;
+  height:40px;
+  left: 0px;
+  top: -15px;
+  line-height: 2;
+   transform-origin: bottom; left;
+  -ms-transform: skew(-0deg, -5deg);
+  -webkit-transform: skew(0deg, -5deg);
+  transform: skew(0deg, -5deg);
+  }
+
+.topboxtxt{
+    -webkit-transform: skew(-5deg);
+     font-size: 14px;
+    padding-left: 10px;
+    padding-right: 40px;
+}
+
+.topboxtxt span{
+ padding-top: 6px;
+    padding-right: 8px;
+  }
+
+
+.triangle {
+   height:40px;
+  -webkit-transform:skew(-20deg);
+  -moz-transform:skew(-20deg);
+  -o-transform:skew(-20deg);
+  tranform:skew(-20deg);
+  margin: -2px;
+}
+
+.txtsbtn{
+-webkit-transform: skew(20deg);
+line-height: 1.2;
+vertical-align: middle;
+font-size: 12px; 
+padding-right: 10px;
+
+}
+.txtbtn{
+-webkit-transform: skew(20deg);
+line-height: 1.2;
+vertical-align: middle;
+font-size: 14px; 
+font-weight: bold;
+}
+
+.btnadd{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: transparent;
+    outline: none;
+  }
+
+.btn:focus{
+  outline: none;
+  outline-style:none;
+  box-shadow:none;
+  border-color:transparent;
+}
+
+#btneditappel{
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  margin-left: -100px;
+  width: 200px;
+font-family: "Roboto", sans-serif;
+}
+
+/* En-tête--------------------------------------------------------------------------------------------*/
+/* Les tables-----------------------------------------------------------------------------------------*/
+fixed-table-toolbar .bs-bars, .fixed-table-toolbar .search, .fixed-table-toolbar .columns {
+  display: inline-table;
+  top: 4px;
+  position: absolute;
+  right: 60px;
+}
+
+
+/* En-tête--------------------------------------------------------------------------------------------*/
+.headercontain{
+  width: 100%;
+  display: block;
+}
+
+#header {
+  padding: 0px 0;
+  height: 98px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  background: white; 
+  transition: all 0.5s;
+  z-index: 997;
+  border-bottom: 4px solid #848484;
+}
+
+#header #logo {
+  float: left;
+}
+
+/*#header #logo img {
+  padding: 0;
+  margin: 0;
+}
+.imglogo {
+    background-image: url(../img/logo1.jpg);
+    width: 96px;
+    height: 90px;
+    background-repeat: no-repeat;
+}
+.txtlogo {
+    margin: 0;
+    padding-top: 12px;
+    display: inline-table;
+    line-height: 1.6;
+}*/
+
+.copro{
+  font-size: 16px;
+  font-weight: bolder;
+  margin-left: 20px;
+  display: inline-flex;
+  height: 40px;
+  line-height: 4;
+}
+.sep {
+    width: 20px;
+    display: inline-flex;
+}
+/* Menu--------------------------------------------------------------------------------------------*/
+#nav-menu-container {
+    text-align: right;
+    height: 53px;
+    line-height: 2;
+    vertical-align: bottom;
+    padding-top: 13px;
+}
+
+@media (max-width: 768px) {
+  #nav-menu-container {
+    display: none;
+  }
+}
+
+.nav-menu ul {
+  position: absolute;
+  display: none;
+  top: 100%;
+  left: 0;
+  z-index: 99;
+}
+
+.nav-menu ul li {
+  min-width: 180px;
+}
+.nav-menu li:hover > ul,
+.nav-menu li.sfHover > ul {
+  display: block;
+}
+
+.nav-menu ul ul {
+  top: 0;
+  left: 100%;
+}
+
+/* En-tête--------------------------------------------------------------------------------------------*/
+#sectionprint{
+    display: flow-root;
+    top: 97px;
+    position: absolute;
+    left: 0;
+    right: 0px;
+  }
+#boxprint{
+  /*  background: orange;*/
+    height: 80vh;
+    overflow: auto;
+  }
+
+.recap{
+display: table;
+    padding: 20px;
+}
+ 
+
+.titledoc {
+    text-align: center;
+    line-height: 2;
+    margin-left: 120px;
+    margin-right: 120px;
+    margin-top: 20px;
+   background: gray !important;
+    font-weight: bold;
+    color: white !important;
+}
+
+
+.sig {
+    text-align: right;
+    padding-right: 120px;
+    padding-top: 60px;
+     font-size: 11px;
+}
+.chq{
+    padding-left: 50px;
+    padding-top: 11px;
+     font-size: 11px;
+}
+.txtchq{
+    padding-left: 100px;
+     font-size: 11px;
+}
+
+.paiment{
+    display: flex;
+    padding-left: 50px;
+     font-size: 11px;
+}
+
+.tblTop{
+line-height: 2;
+    border-top: Gainsboro solid thin;
+    background: gray !important;; 
+    text-align: center;
+    font-weight: bold;
+    color: white !important;
+     font-size: 11px;
+ }
+.tblTopNiv2{
+line-height: 2;
+    border-top: Gainsboro solid thin;
+     text-align: center;
+    font-weight: bold;
+     font-size: 11px;
+  }
+
+.tblTopNiv3{
+line-height: 2;
+    border-top: Gainsboro solid thin;
+     text-align: left;
+    font-weight: bold;
+    font-size: 11px;
+   }
+.tblTopNiv4{
+line-height: 1.3;
+    border-top: Gainsboro solid thin;
+ padding-left: 60px;
+    font-size: 11px;
+   }
+.tblcontent{
+line-height: 1.5;
+    border-top: Gainsboro solid thin ;
+     font-size: 11px;
+   }
+.tblC{
+text-align: center;
+  }
+.tblR{
+text-align: right;
+  }
+.tblT{
+   border-bottom: Gainsboro solid thin ;
+  }
+
+
+#titleappel{
+    padding-top: 20px;
+    padding-bottom: 30px;
+    line-height: 1.8;
+    text-align: center;
+    font-weight: bold;
+    font-size: 11px;
+}
+
+#dateappel{
+    padding-top: 30px;
+    padding-left: 60%;
+    padding-bottom: 30px;
+    line-height: 1.8;
+    font-size: 11px;
+}
+
+#infocopro{
+    padding-left: 20px;
+   padding-bottom: 30px;
+    font-size: 11px;
+}
+
+#htpg{
+    display: flex;
+    padding: 4px;
+    font-size: 11px;
+}
+
+.imglogo {
+    background-image: url(../img/logo1.jpg) !important;
+    width: 96px;
+    height: 94px;
+    background-repeat: no-repeat;
+}
+.txtlogo {
+    margin: 0;
+    padding-top: 12px;
+    padding-left: 30px;
+    display: inline-table;
+    line-height: 1.6;
+    font-size: 11px;
+}
+.recap{
+display: table;
+    padding: 20px;
+}
+
+div.footnotes { 
+  page-break-after: always; 
+      font-size: 9px;
+      text-align: center;
+      padding-top: 60px;
+
+}
+/* En-tête--------------------------------------------------------------------------------------------*/
+
+
