@@ -1,12 +1,6 @@
 <?php
 require_once 'php/bdd/login.php';
 @session_start();
-/*$password='Test_sosinf75';
-$hashedPassword=password_hash($password,PASSWORD_DEFAULT);
-print $password;
-print $hashedPassword;*/
-
-
 
 
 try {
