@@ -1,9 +1,6 @@
 <?php
  	include("../bdd/param.php");
-	$conn = new mysqli(DBHOST,DBUSER,DBPASSWD,DBNAME);
-	if ($conn->connect_error) {
-	  die("Connection failed: " . $conn->connect_error);
-	} 
+	$conn = dbConnect();
    
 	if (isset($_POST['pat_id'])){
 		$pat_id = $_POST['pat_id'];
@@ -22,4 +19,4 @@
 	}
 	$conn->close();
 	echo $rek;
-?>
+

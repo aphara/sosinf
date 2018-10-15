@@ -1,9 +1,6 @@
 <?php
  	include("../bdd/param.php");
-	$conn = new mysqli(DBHOST,DBUSER,DBPASSWD,DBNAME);
-	if ($conn->connect_error) {
-	  die("Connection failed: " . $conn->connect_error);
-	} 
+	$conn = dbConnect();
 	$pat_id = "";  
 	$pat_creation = "";
 	$pat_modification = "";
@@ -61,4 +58,3 @@ if($pat_id === ""){
 }
 $conn->close();
 echo $rek;
-?>
