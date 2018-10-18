@@ -2,58 +2,85 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title>CeHD - Connexion</title>
-    <link rel="stylesheet" href="public/css/style.css" />
+    <title>SOS Infirmières - Connexion</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <!-- <link rel="stylesheet" href="css/bootstrap-theme.css"> -->
+    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="css/bootstrap-table.css">
+    <link rel="stylesheet" href="webfonts/css/fontawesome-all.css">
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="js/jquery-resizable.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap-confirmation.min.js"></script>
+    <script src="js/bootstrap-table.js"></script>
+    <script src="js/bootstrap-table-multiple-sort.js"></script>
+    <script src="js/bootstrap-table-toolbar.js"></script>
+    <script src="js/bootstrap-datepicker.js"></script>
+    <script src="js/bootstrap-datepicker.fr.min.js"></script>
+    <script src="js/bootstrap-timepicker.js"></script>
+    <script src="js/jquery.maskMoney.js"></script>
+    <script src="js/bootstrap-table.js"></script>
+    <script src="js/bootstrap-table-multiple-sort.js"></script>
+    <script src="js/bootstrap-table-toolbar.js"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
+
 
 <body>
 
-<div class="all">
-    <div class="img_title">
-        <img src='public/img/LOGO_login.png' alt='logo' id="img_logo"/>
-        <h1>Connexion</h1>
-
+<div class="container">
+    <div class="row text-center">
+        <div class="col-lg-12">
+            <br /><br/>
+            <img src='images/logo-infirmieres.png' alt='logo' id="img_logo"/>
+            <br />
+        </div>
     </div>
 
+    <div class="row">
+        <div class="col-lg-4 col-lg-offset-4">
+            <div class="panel panel-default">
+                <div class="panel-heading text-center">
+                    <h3>Connexion</h3>
+                </div>
+                <div class="panel-body">
 
-    <div class="form">
-        <form action="index.php?action=login" method="post">
+                    <form class="login-form" action="index.php?action=login" method="post">
+                        <div class="login-wrap">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-user fa-fw"></i></span>
+                                <input type="text" class="form-control" placeholder="Nom d'utilisateur" id="username" name="_username" value="" autofocus required>
+                            </div>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-lock fa-fw"></i></span>
+                                <input type="password" class="form-control" placeholder="Mot de passe" id="password" name="_password" required>
+                            </div>
 
-            <div>
-                <input type="text" placeholder="Nom d'utilisateur" id="username" name="_username" value="" autofocus required>
+
+
+                            <label class="checkbox">
+                                <label for="remember-me"><input type="checkbox" value="remember-me" id="remember-me">Se souvenir de moi</label>
+                                <span class="pull-right"> <a href=#>Mot de passe oublié</a></span>
+                            </label>
+
+                            <hr>
+
+                            <div class="row">
+                                <div class="col-lg-6 col-sm-12">
+                                    <button class="btn btn-info btn-lg btn-block" type="submit">Se connecter</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
-            <div>
-                <input type="password" placeholder="Mot de passe" id="password" name="_password" required>
-            </div>
-
-
-            <hr>
-
-            <div id="btn">
-                <button class="btn btn-primary btn-lg btn-block" type="submit">Se connecter</button>
-            </div>
-        </form>
-
+        </div>
     </div>
-    <br/><br/>
-    <a href="index.php?action=firstlog">Première connexion ?</a> <br>
-    <a href="index.php?action=pageforgetpassw">Mot de passe oublié ?</a>
-
 </div>
-<footer>
-    <div id='footer'>
-
-        <div id='cgu'><a href="index.php?action=cgu_public">CGU</a></div>
-        <div>|</div>
-        <div id='contact'><a href="index.php?action=contact_public">Contact</a></div>
-        <div>|</div>
-        <div id='aide'><a href="index.php?action=help_public">Aide</a></div>
-
-    </div>
-
-    </div>
-</footer>
-
 
 </body>
 
