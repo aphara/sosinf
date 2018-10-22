@@ -53,7 +53,7 @@
                         <div class="login-wrap">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-user fa-fw"></i></span>
-                                <input type="text" class="form-control" placeholder="Nom d'utilisateur" id="username" name="_username" value="" autofocus required>
+                                <input type="text" class="form-control" placeholder="Adresse mail" id="mail" name="_mail" value="" autofocus required>
                             </div>
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-lock fa-fw"></i></span>

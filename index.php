@@ -10,7 +10,7 @@ try {
 
 //login
         case 'login':
-            login($_POST['_username'], $_POST['_password']);
+            login($_POST['_mail'], $_POST['_password']);
             if (isset($_SESSION['id'])) {
                 header("Location:index.php?action=patients");
             }else{
@@ -22,6 +22,14 @@ try {
         case 'patients':
             if (isset($_SESSION['id'])){
                 require 'patients.php';
+            }else{
+                authErr();
+            }
+            break;
+
+        case 'planning':
+            if (isset($_SESSION['id'])){
+                require 'planning.php';
             }else{
                 authErr();
             }

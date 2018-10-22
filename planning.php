@@ -35,9 +35,10 @@
 
 <body style="">
 <ul class="nav nav-tabs navbar-static-top">
-    <li role="presentation"><a href="#">Patients</a></li>
+    <li role="presentation"><a href="index.php?action=patients">Patients</a></li>
     <li role="presentation"><a href="#">Infirmier</a></li>
-    <li role="presentation" class="active"><a>Planning</a></li>
+    <li role="presentation" class="active"><a href="index.php?action=planning">Planning</a></li>
+    <li role="presentation"><a href="index.php?action=logout">Se déconnecter</a></li>
 </ul>
 <div>
     <div class="row">

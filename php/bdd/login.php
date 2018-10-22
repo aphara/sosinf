@@ -1,14 +1,14 @@
 <?php
 require_once 'param.php';
-function login($_username, $_password)
+function login($_mail, $_password)
 {
     //password hash check
-    $result = get_password($_username);
+    $result = get_password($_mail);
     $isPasswordCorrect = password_verify($_password, $result['user_pass']);
     if ($isPasswordCorrect) {
         @session_start();
         $_SESSION['id'] = $result['user_id'];
-        $_SESSION['username'] = $result['user_pseudo'];
+        $_SESSION['mail'] = $result['user_mail'];
     } else {
         echo 'Mauvais identifiant ou mot de passe !';
         require 'login_view.php';
@@ -16,10 +16,10 @@ function login($_username, $_password)
 }
 
 
-function get_password($username)
+function get_password($mail)
 {
     $db=dbConnect();
-    $req="SELECT user_id, user_pseudo, user_pass FROM user WHERE user_pseudo LIKE '".$username."%'; ";
+    $req="SELECT user_id, user_mail, user_pass FROM user WHERE user_mail LIKE '".$mail."%'; ";
     $result=$db->query($req);
     $post=$result->fetch_assoc();
     $db->close();
